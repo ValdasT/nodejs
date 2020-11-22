@@ -1,0 +1,26 @@
+To check the syntax of a program (which will be called app.js), use --check or -c flag:
+node --check app.js
+node -c app.js
+
+There are two flags that can evaluate code. The -p or --print flag evaluates an expression and prints the result, the -e or --eval flag evaluates without printing the result of the expression.
+The following will print 2
+node --print "1+1"
+The following will not print anything because the expression is evaluated but not printed.
+node --eval "1+1"
+The following will print 2 because console.log is used to explicitly write the result of 1+1 to the terminal:
+node -e "console.log(1+1)"
+When used with print flag the same will print 2 and then print undefined because console.log returns undefined; so the result of the expression is undefined:
+node -p "console.log(1+1)"
+
+The command line flag -r or --require can be used to preload a module before anything else loads.
+Given a file named preload.js with the following content:
+console.log('preload.js: this is preloaded')
+And a file called app.js containing the following:
+console.log('app.js: this is the main file')
+The following command would print preload.js: this is preloaded followed by app.js: this is the main file:
+node -r ./preload-me.js app.js
+
+
+Stack traces are generated for any Error that occurs, so they're usually the first point of call when debugging a failure scenario. By default, a stack trace will contain the last ten stack frames (function call sites) at the point where the trace occurred. This is often fine, because the part of the stack you are interested in is often the last 3 or 4 call frames. However there are scenarios where seeing more call frames in a stack trace makes sense, like checking that the application flow through various functions is as expected.
+The stack trace limit can be modified with the --stack-trace-limit flag. This flag is part of the JavaScript runtime engine, V8, and can be found in the output of the --v8-options flag.
+node --stack-trace-limit=101 app.js

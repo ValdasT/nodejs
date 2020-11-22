@@ -11,12 +11,13 @@ fs.writeFile(
     }
 );
 
-const config = JSON.parse(fs.readFileSync("./package-lock.json"));
-console.log(config);
+// const config = JSON.parse(fs.readFileSync("./package-lock.json"));
+// console.log(config);
 
 // __dirname current repository
 fs.writeFile(
-    path.join(__dirname, "/out2.txt"),
+    // path.join(__dirname, "/out2.txt"),
+    `${__dirname}/put2.txt`,
     "My path is relative to the directory this script inhabits!",
     (err) => {
         if (err) throw new Error(err);

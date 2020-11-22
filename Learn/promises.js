@@ -13,13 +13,13 @@ const myTimer = (ms) => {
 }
 
 const myTimerWithCallBack = (ms, callback) => {
-        if (ms === undefined) {
-            callback(new Error('ms is required from callback'))
-        } else {
-            setTimeout(() => {
-                callback(null, ms);
-            }, ms)
-        }
+    if (ms === undefined) {
+        callback(new Error('ms is required from callback'))
+    } else {
+        setTimeout(() => {
+            callback(null, ms);
+        }, ms)
+    }
 }
 
 const getUserInfo = () => {
@@ -40,7 +40,7 @@ let testFunction = async () => {
         // const res2 = await myTimer();
         // console.log(res2);
 
-        myTimerWithCallBack(2000, (err,result) => {
+        myTimerWithCallBack(2000, (err, result) => {
             if (err) throw new Error(err)
             console.log(result);
         })
@@ -53,7 +53,32 @@ let testFunction = async () => {
 
 };
 
+const lastFunction = (ten) => {
+    console.log('init');
 
-testFunction();
+    return new Promise((resolve,reject) => {
+        if (ten === 10) {
+            setTimeout(() => {
+                resolve('this is after time')
+            }, 2000)
+        } else {
+            reject('upppssss')
+        }
+    })
+}
+
+const trrrrrr = async () => {
+    try {
+        let test = await lastFunction(10);
+        console.log(test);
+    } catch (err) {
+        console.log('err');
+        console.log(err);
+    }
+}
+
+trrrrrr();
+
+// testFunction();
 
 

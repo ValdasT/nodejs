@@ -1,0 +1,18 @@
+JavaScript primitives are as follows:
+
+Null: null
+Undefined: undefined
+Number: 1, 1.5, -1e4, NaN
+BigInt: 1n, 9007199254740993n
+String: 'str', "str", `str ${var}`
+Boolean: true, false
+Symbol: Symbol('description'), Symbol.for('namespace')
+
+The Number type is double-precision floating-point format. It allows both integers and decimals but has an integer range of -253-1 to 253-1. The BigInt type has no upper/lower limit on integers.
+
+It's crucial to understand that this refers to the object on which the function was called, not the object which the function was assigned to:
+const obj = { id: 999, fn: function () { console.log(this.id) } }
+const obj2 = { id: 2, fn: obj.fn }
+obj2.fn() // prints 2
+obj.fn() // prints 999
+Both obj and obj2 to reference the same function but on each invocation the this context changes to the object on which that function was called.
