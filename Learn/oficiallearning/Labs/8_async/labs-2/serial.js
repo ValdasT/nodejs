@@ -37,4 +37,15 @@ const run = () => {
   })
 }
 
+
+// let promiseA = promisify(opA);
+// let promiseB = promisify(opB);
+// let promiseC = promisify(opC);
+ 
+// async function run() {
+//   print(0, await promiseA());
+//   print(0, await promiseB());
+//   print(0, await promiseC());
+// }
+
 run()
