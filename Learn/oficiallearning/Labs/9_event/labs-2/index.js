@@ -19,3 +19,10 @@ ee.emit('error', Error('timeout'))
 // ee.removeAllListeners('add')
 // ee.emit('add', 7, 6)
 
+
+// ee.once('test', (a) => {
+//     console.log("test event - " + a);
+// });
+// ee.emit('test', 1)
+// ee.emit('test', 2)
+// ee.emit('test', 3)
