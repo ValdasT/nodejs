@@ -2,7 +2,7 @@
 
 const assert = require('assert')
 const semver = require('semver')
-const pkg = require('./package.json.js')
+const pkg = require('./package.json')
 assert.doesNotThrow(() => {
   require('fastify')
 }, 'fastify should be installed')
