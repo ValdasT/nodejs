@@ -31,3 +31,31 @@ run()
 // 'sunos' – Solaris / Illumos / SmartOS
 // 'win32' – Windows
 // 'android' – Android, experimental
+
+
+// setInterval(() => {   
+//     console.log(process.uptime()) // TODO output uptime of process
+//     console.log(os.uptime()) // TODO output uptime of OS
+//     console.log(os.totalmem()) // TODO output total system memory
+//     console.log(process.memoryUsage().heapTotal) // TODO output total process memory (Heap used is total used memory, Resident Set Size is total used memory in RAM)
+//     console.log(process.cpuUsage()); // process cpu usage
+// },1000)
+
+
+
+// 'use strict'
+// setInterval(() => {
+//   console.log('this interval is keeping the process open')
+//   process.exitCode = 1
+// }, 500)
+// setTimeout(() => {
+//   console.log('exit after this')
+//   process.exit()
+// }, 1750)
+
+// process.on('exit', (code) => {
+//   console.log('exiting with code', code)
+//   setTimeout(() => {
+//     console.log('this will never happen')
+//   }, 1)
+// })

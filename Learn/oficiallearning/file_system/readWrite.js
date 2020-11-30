@@ -1,6 +1,6 @@
 'use strict'
 const { join } = require('path')
-const { readFileSync, writeFileSync, readdirSync, statSync, watch } = require('fs')
+const { readFileSync, writeFileSync, readdirSync, statSync, watch, readFile, writeFile } = require('fs')
 
 // const contents = readFileSync(__filename)
 // console.log(contents)
@@ -30,4 +30,12 @@ for (const name of files) {
 
 watch('.', (evt, filename) => {
     console.log(evt, filename)
-  })
+})
+  
+async function run () {
+  const contents = await readFile(__filename, {encoding: 'utf8'})
+  const out = join(__dirname, 'out.txt')
+  await writeFile(out, contents.toUpperCase())
+}
+
+run().catch(console.error)
