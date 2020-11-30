@@ -16,7 +16,7 @@ const sp = spawn(
   // sp.stdin.write('this input will become output\n')
   // sp.stdin.end()
   
-// sp.stdout.pipe(process.stdin)
+sp.stdout.pipe(process.stdin)
 // sp.stderr.pipe(process.stderr)
 // sp.stdin.end()
 return sp(command, args)
