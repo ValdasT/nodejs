@@ -7,9 +7,9 @@ const { execSync, exec, spawnSync} = require('child_process')
 // console.log(output.toString())
 // //=================================
 
-// const cmd = process.platform === 'win32' ? 'dir' : 'ls'
-// const output2 = execSync(cmd);
-// console.log(output2.toString())
+const cmd = process.platform === 'win32' ? 'dir' : 'ls'
+const output2 = execSync(cmd);
+console.log(output2.toString())
 
 // //=================================
 // try {
@@ -39,12 +39,12 @@ const { execSync, exec, spawnSync} = require('child_process')
 // }
 
 //==================================
-// try {
-//     let result = execSync(`node -e "process.chdir('../'); console.log(process.cwd())"  `)
-//     console.log(result.toString());
-// } catch (err) {
-//     console.error('CAUGHT ERROR:', err)
-// }
+try {
+    let result = execSync(`node -e "process.chdir('./zone'); console.log(process.cwd())"  `)
+    console.log(result.toString());
+} catch (err) {
+    console.error('CAUGHT ERROR:', err)
+}
 
 // const result = spawnSync(
 //   process.execPath,
@@ -63,6 +63,6 @@ const { execSync, exec, spawnSync} = require('child_process')
 // });
 
 // console.log(`Starting directory: ${process.cwd()}`);
-let test = execSync('pwd', { cwd: '../' })
+let test = execSync('pwd', { cwd: './zone' })
         console.log(test.toString());
     

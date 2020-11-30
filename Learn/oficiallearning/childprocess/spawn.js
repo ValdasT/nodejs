@@ -11,7 +11,7 @@ const { spawnSync, spawn } = require('child_process')
 // const sp = spawn(process.execPath, ['-p', 'process.env'])
 // sp.stdout.pipe(process.stdout)
 
-
+//==================================
 process.env.A_VAR_WE = 'JUST SET'
 
 const sp2 = spawn(process.execPath, ['-p', 'process.env'], {
@@ -24,3 +24,19 @@ console.log(process.env);
 //     env: { MY_ENV_VAR: 'ffff' }
 // })
   
+
+//==================================
+
+const result = spawnSync(
+  process.execPath,
+  ['-e', `console.log('subprocess stdio output')`]
+)
+console.log(result.stdout.toString())
+
+// const result = spawnSync(process.execPath, [`-e`, `process.exit(1)`])
+
+
+//==================================
+process.env.A_VAR_WE = 'JUST SET'
+const sp = spawn(process.execPath, ['-p', 'process.env'])
+sp.stdout.pipe(process.stdout)
